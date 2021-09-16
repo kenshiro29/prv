@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>
+      Tailwind Starter Template - Responsive Header : Tailwind Toolbox
+    </title>
+    <meta name="author" content="name" />
+    <meta name="description" content="description here" />
+    <meta name="keywords" content="keywords,here" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!--Replace with your tailwind.css once created-->
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet" />
+    <!--Totally optional :) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+      integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div w3-include-html="../static/Header.html"></div>
+    <br />
+    <br />
+
+    <section
+      class="bg-dark"
+      style="
+        background-image: url(https://bscscan.com/images/svg/components/abstract-shapes-20.svg?v=2);
+        height: 289px;
+      "
+    >
+      <div class="container" style="padding-top: 16px;">
+        <h1
+          style="
+            color: #ffc107;
+            font-size: 1.25rem;
+            padding-top: 40px;
+            font-weight: 500;
+          "
+        >
+          BlockDora Blockchain Explorer (BSC).
+        </h1>
+        <form
+          class="mb-3"
+          action="/search"
+          method="GET"
+          style="padding-top: 29px;"
+        >
+          <div class="input-group input-group-shadow">
+            <input
+              id="txtSearchInput"
+              type="text"
+              class="form-control searchautocomplete ui-autocomplete-input list-unstyled py-3 mb-0"
+              placeholder="Search by Address / Txn Hash / Block / Token"
+              aria-describedby="button-header-search"
+              name="q"
+              onkeyup="handleSearchText(this);"
+              autocomplete="off"
+              style="
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+                max-width: 650px;
+                height: 50px;
+              "
+            />
+            <input type="hidden" value="" id="hdnSearchText" />
+            <input id="hdnIsTestNet" value="False" type="hidden" />
+            <div class="input-group-append">
+              <button
+                class="btn btn-primary"
+                type="submit"
+                style="width: 59px;"
+              >
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+        <caption>
+          <span style="font-weight: bolder; color: #818181;"
+            >BlockDora(BSC)</span
+          >
+          <span style="color: #ffffffb3;">
+            is a blockchain explorer for Binance Smart Chain inspired by
+            <a style="color: #3498d8; font-weight: bolder;"
+              >BscScan.com</a
+            ></span
+          >
+        </caption>
+        <div
+          class="container space-bottom-1 mt-n5"
+          style="padding-top: 61px; padding-left: 0; padding-right: 0;"
+        >
+          <div id="ContentPlaceHolder1_mainboxes" class="card mb-4">
+            <div class="card-body">
+              <div class="row mx-gutters-md-1">
+                <div class="col-md-6 col-lg-4">
+                  <div
+                    class="media align-items-center"
+                    style="padding-bottom: 16px;"
+                  >
+                    <div class="u-xs-avatar" style="padding-right: 10px;">
+                      <img
+                        src="https://bscscan.com/images/svg/brands/bnb-1.svg?v=1.3"
+                        alt=""
+                        height="26px"
+                        width="26px"
+                      />
+                    </div>
+                    <div class="media-body">
+                      <h2
+                        class="font-size-1 text-uppercase text-secondary mb-0"
+                      >
+                        BNB Price
+                      </h2>
+                      <a
+                        class="text-size-1 text-link"
+                        href=""
+                        rel="tooltip"
+                        data-toggle="tooltip"
+                        data-placement="bottom"
+                        title=""
+                        id="bnbPRICE"
+                        >$<%= BNBprice.ethusd %><span class="text-secondary">
+                          @ <%= BNBprice.ethbtc %> BTC</span
+                        ></a
+                      >
+                    </div>
+                  </div>
+                  <hr class="hr-space-lg" />
+                  <div
+                    class="media align-items-center"
+                    style="padding-top: 16px;"
+                  >
+                    <div class="u-xs-avatar" style="padding-right: 10px;">
+                      <img
+                        src="	https://bscscan.com/images/svg/icons/icon-8.svg"
+                        alt=""
+                        height="26px"
+                        width="26px"
+                      />
+                    </div>
+                    <div class="media-body">
+                      <h2
+                        class="font-size-1 text-uppercase text-secondary mb-0"
+                      >
+                        BNB MARKET CAP ON BSC
+                      </h2>
+                      <a
+                        class="text-size-1 text-link"
+                        href=""
+                        rel="tooltip"
+                        data-toggle="tooltip"
+                        data-placement="bottom"
+                        title=""
+                        >$<%= marketCap%>
+                        <span class="text-secondary">
+                          (<%= rawCap %> BNB)</span
+                        ></a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="ve-hr"></div>
+                <div class="col-md-6 col-lg-4">
+                  <div
+                    class="media align-items-center"
+                    style="padding-bottom: 16px;"
+                  >
+                    <div class="u-xs-avatar" style="padding-right: 10px;">
+                      <img
+                        src="https://bscscan.com/images/svg/icons/icon-2-1.svg?v=1.3"
+                        alt=""
+                        height="26px"
+                        width="26px"
+                      />
+                    </div>
+                    <div class="media-body">
+                      <h2
+                        class="font-size-1 text-uppercase text-secondary mb-0"
+                      >
+                        LATEST BLOCK
+                      </h2>
+                      <a
+                        class="text-size-1 text-link"
+                        href=""
+                        rel="tooltip"
+                        data-toggle="tooltip"
+                        data-placement="bottom"
+                        title=""
+                        id="bnbPRICE"
+                        ><%=block%>
+                      </a>
+                    </div>
+                  </div>
+                  <hr class="hr-space-lg" />
+                  <div
+                    class="media align-items-center"
+                    style="padding-top: 16px;"
+                  >
+                    <div class="u-xs-avatar" style="padding-right: 10px;">
+                      <img
+                        src="	https://bscscan.com/images/svg/icons/icon-51.svg?v=1.5"
+                        alt=""
+                        height="26px"
+                        width="26px"
+                      />
+                    </div>
+                    <div class="media-body">
+                      <h2
+                        class="font-size-1 text-uppercase text-secondary mb-0"
+                      >
+                        ACTIVE VALIDATOR
+                      </h2>
+                      <a
+                        class="text-size-1 text-link"
+                        rel="tooltip"
+                        data-toggle="tooltip"
+                        data-placement="bottom"
+                        title=""
+                        ><%= validators%>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <style>
+      .ve-hr {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      @media screen and (max-width: 767px) {
+        .ve-hr {
+          transform: rotate(180deg);
+          width: 95%;
+          margin: 16px auto;
+        }
+      }
+      @media screen and (min-width: 768px) {
+        .ve-hr {
+          height: 119px;
+          border-left: 1px solid rgba(0, 0, 0, 0.1);
+        }
+      }
+    </style>
+    <script>
+      function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /* Loop through a collection of all HTML elements: */
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+          elmnt = z[i];
+          /*search for elements with a certain atrribute:*/
+          file = elmnt.getAttribute("w3-include-html");
+          if (file) {
+            /* Make an HTTP request using the attribute value as the file name: */
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+              if (this.readyState == 4) {
+                if (this.status == 200) {
+                  elmnt.innerHTML = this.responseText;
+                }
+                if (this.status == 404) {
+                  elmnt.innerHTML = "Page not found.";
+                }
+                /* Remove the attribute, and call this function once more: */
+                elmnt.removeAttribute("w3-include-html");
+                includeHTML();
+              }
+            };
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /* Exit the function: */
+            return;
+          }
+        }
+      }
+      console.log("loaded");
+      includeHTML();
+    </script>
+  </body>
+</html>

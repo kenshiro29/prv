@@ -1,0 +1,94 @@
+<nav
+  class="navbar px-4 fixed w-full navbar-expand-md navbar-dark bg-white"
+  style="z-index: 99999;"
+>
+  <a class="navbar-brand" href="#">
+    <img
+      src="https://i.ibb.co/Xk3sD5C/Block-Dora.png"
+      alt="BlockDora"
+      height="56"
+      width="120"
+  /></a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarsExample04"
+    aria-controls="navbarsExample04"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <i class="fas fa-bars" style="color: #222333;"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample04">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          id="dropdown04"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          >Dropdown</a
+        >
+        <div class="dropdown-menu" id="dp-04" aria-labelledby="dropdown04">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<style>
+  .navbar {
+    box-shadow: 1px -13px 39px #818181;
+  }
+  .nav-link {
+    color: #222333 !important;
+    font-weight: 500;
+    transition: 0.2s all ease;
+    font-size: 1.05rem;
+  }
+  .nav-link:hover {
+    color: #ffc107 !important;
+    cursor: pointer !important;
+  }
+  .navbar-toggler-icon {
+    color: #222333 !important;
+  }
+  .dropdown-menu {
+    transition: 0.4s all ease-in-out;
+  }
+  @media screen and (min-width: 768px) {
+    #dp-04 {
+      margin: 0.5rem -65% 0px;
+    }
+    .dropdown-item {
+      width: 80%;
+      margin: 0;
+      text-align: left;
+      transition: 0.2s all ease-in;
+    }
+    .dropdown-item:hover {
+      background: none;
+      color: #ffc107;
+    }
+  }
+</style>
+<script>
+  //Javascript to toggle the menu
+  document.getElementById("nav-toggle").onclick = function () {
+    document.getElementById("nav-content").classList.toggle("hidden");
+  };
+</script>

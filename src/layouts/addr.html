@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>
+      Tailwind Starter Template - Responsive Header : Tailwind Toolbox
+    </title>
+    <meta name="author" content="name" />
+    <meta name="description" content="description here" />
+    <meta name="keywords" content="keywords,here" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!--Replace with your tailwind.css once created-->
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet" />
+    <!--Totally optional :) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+      integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+
+  </head>
+  <body>
+    <div w3-include-html="../static/Header.html"></div>
+    <br />
+    <br />
+
+
+
+
+
+    <div
+      id="ContentPlaceHolder1_divSummary"
+      class="py-20 container space-bottom-2"
+      style="padding-top: 75px;"
+    >
+
+
+      <div class="row mb-4">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <div class="card h-100">
+            <div
+              class="card-header d-flex justify-content-between align-items-center"
+            >
+              <h2 class="card-header-title" style="color:#222666;font-weight:bold;">Wallet Overview</h2>
+
+            </div>
+
+            <div class="card-body">
+              <div class="row align-items-center" style="padding: 16px;">
+                <div class="col-md-4 mb-1 mb-md-0" >Balance:</div>
+                <div class="col-md-8" style="color:#222666;font-weight:bold;"><%= bal %> BNB</div>
+              </div>
+
+              <hr class="hr-space" />
+             
+              <div class="row align-items-center" style="padding:16px">
+                <div class="col-md-4 mb-1 mb-md-0">Address:</div>
+                <div class="col-md-8" style="color:#222666;font-weight:bold;">
+                  <h1 class="h4 mb-0" style="    font-size: 1.05rem;
+                  flex-direction: row;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;width: 100%;">
+                  <span id="mainaddress" class="text-size-address text-secondary text-break mr-1" data-placement="top" style="color:#222666!important;"><%= addr %></span>
+                  <span id="ContentPlaceHolder1_copyButtonPanel" class="d-inline-flex">
+                    
+                  <span class="mr-1">
+                  <a style="    border: .5px solid #818181;" class="js-clipboard btn btn-sm btn-icon btn-soft-secondary rounded-circle" id="copyaddressbutton" href="javascript:;" data-toggle="tooltip" data-title="Copy address to clipboard" "="" data-clipboard-target="#mainaddress" data-class-change-target="#linkIcon" data-type="tooltip" data-success-text="Copied" data-default-class="far fa-copy" data-success-class="fa fa-check" data-original-title="" title="">
+                  <span id="linkIcon" class="far fa-copy btn-icon__inner"></span>
+                  </a>
+                  </span>
+                  
+                  <script>
+                  new ClipboardJS('.btn')</script>
+                  
+                  </span>
+                  </h1>
+                </div>
+              </div>
+              <hr class="hr-space" />
+
+              <div class="row align-items-center" style="padding:16px">
+                <div class="col-md-4 mb-1 mb-md-0">BNB Value:</div>
+                <div class="col-md-8" style="color:#222666;font-weight:bold;">
+                  $<%= bat %>
+                  <span class="small" style="position: relative; top: -1px;"
+                    >(@ $<%= usd %>/BNB)</span
+                  >
+                </div>
+              </div>
+
+              <div id="ContentPlaceHolder1_tokenbalance">
+                <hr class="hr-space" />
+
+                <div class="row align-items-center" style="padding: 16px;">
+                  <div class="col-md-4 mb-1 mb-md-0" >
+                    Token:
+                  </div>
+                  <div class="col-md-8 d-flex justify-content-between">
+                    <div class="position-relative w-100 mr-1">
+                      <a
+                        id="availableBalanceDropdown"
+                        class="btn btn-xs btn-custom btn-custom-balance dropdown-toggle"
+                        href="javascript:;"
+                        role="button"
+                        aria-controls="basicDropdownClick"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        style="color:#222666;font-weight:bold;"
+                        id="bal_output"
+                      >
+                        $9.54
+                        <span
+                          class="badge badge-primary mx-1"
+                          data-toggle="tooltip"
+                          title=""
+                          data-original-title="60 Token Contracts"
+                          >60</span
+                        >
+                      </a>
+                      <div
+                        id="availableBalanceClick"
+                        class="dropdown-menu dropdown-unfold dropdown-balance w-100 u-unfold--css-animation u-unfold--hidden"
+                        aria-labelledby="availableBalanceDropdown"
+                        style="z-index: 1021; animation-duration: 300ms;"
+                      >
+                        <div class="pl-2 pr-3 js-focus-state">
+                          <input type="text" class="form-control form-control-xs
+                          search mb-3" placeholder="Search for Token Name" "=""
+                          aria-label="Search for Token name"
+                          aria-describedby="filter-search">
+                        </div>
+                        <div
+                          class="js-scrollbar overflow-hidden pl-2 pr-3 mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar"
+                          style="
+                            max-height: 280px;
+                            position: relative;
+                            overflow: visible;
+                          "
+                        >
+                          <div
+                            id="mCSB_1"
+                            class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside"
+                            style="max-height: none;"
+                            tabindex="0"
+                          >
+                            <div
+                              id="mCSB_1_container"
+                              class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
+                              style="position: relative; top: 0; left: 0;"
+                              dir="ltr"
+                            >
+                              <div
+                                class="list-not-found text-center pt-5"
+                                style="display: none;"
+                              >
+                                <img
+                                  class="mb-4 mCS_img_loaded"
+                                  width="100"
+                                  src="/assets/svg/empty-states/empty-search-state.svg"
+                                  alt="Search Not Found"
+                                />
+                                <p class="lead mb-0">
+                                  Could not find any matches!
+                                </p>
+                              </div>
+                              <div
+                                id="list-not-found-more-than"
+                                class="text-center pt-5"
+                                style="display: none;"
+                              >
+                                <img
+                                  class="mb-4 mCS_img_loaded"
+                                  width="100"
+                                  src="/assets/svg/empty-states/empty-search-state.svg"
+                                  alt="Search Not Found"
+                                />
+                                
+                              </div>
+                              <ul class="list list-unstyled mb-0">
+                                <li
+                                  class="list-custom-divider list-custom-divider-BEP-20 d-flex justify-content-between align-items-center font-size-1 rounded-sm py-1 px-2 mb-1"
+                                >
+                                  <span
+                                    ><i
+                                      class="fa fa-angle-right text-secondary"
+                                    ></i
+                                    ><strong> BEP-20 Tokens</strong> (60)</span
+                                  ><button
+                                    type="button"
+                                    class="btn sort text-secondary font-size-1 p-0"
+                                    id="btn_ERC20_sort"
+                                    data-toggle="tooltip"
+                                    title=""
+                                    data-original-title="Click to sort"
+                                  >
+                                    &nbsp;&nbsp;<i class="fad fa-sort-down"></i
+                                    >&nbsp;&nbsp;
+                                  </button>
+                                </li>
+                              
+                    </div>
+                          </div>
+                    <span
+                      ><a
+                        class="btn btn-xs btn-custom btn-custom-secondary"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-title="View expanded BEP-20 token holding"
+                        href="/tokenholdings?a=0x295e26495cef6f69dfa69911d9d8e4f3bbadb89b"
+                        data-original-title=""
+                        title=""
+                        ><i class="fas fa-expand"></i></a
+                    ></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="ContentPlaceHolder1_cardright" class="col-md-6">
+          <div class="card h-100">
+            <div
+              class="card-header d-flex justify-content-between align-items-center"
+            >
+              <div id="ContentPlaceHolder1_td_misc" class="d-flex">
+                <h2 class="card-header-title mr-1" style="color:#222666;font-weight:bold;">Chart (Trading View)</h2>
+              </div>
+              <div id="ContentPlaceHolder1_moreoptionsdiv" class="d-flex">
+                <div class="ml-auto mr-1"></div>
+                
+                
+              </div>
+            </div>
+
+            <div class="card-body">
+              
+              <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/symbols/BNBUSD/?exchange=BINANCE" rel="noopener" target="_blank"><span class="blue-text">BNBUSD Rates</span></a> by TradingView</div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+  {
+  "symbol": "BINANCE:BNBUSD",
+  "width": "100%",
+  "height": "100%",
+  "locale": "in",
+  "dateRange": "12M",
+  "colorTheme": "light",
+  "trendLineColor": "rgba(41, 98, 255, 1)",
+  "underLineColor": "rgba(41, 98, 255, 0.3)",
+  "underLineBottomColor": "rgba(41, 98, 255, 0)",
+  "isTransparent": true,
+  "autosize": true,
+  "largeChartUrl": ""
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+          <div class="row mb-4">
+           
+    
+    
+            <div id="ContentPlaceHolder1_cardright" class="col">
+              <div class="card h-100">
+                <div
+                  class="card-header d-flex justify-content-between align-items-center"
+                >
+                  <div id="ContentPlaceHolder1_td_misc" class="d-flex">
+                    <h2 class="card-header-title mr-1" style="color:#222666;font-weight:bold;">Account Transactions</h2>
+                  </div>
+                  <div id="ContentPlaceHolder1_moreoptionsdiv" class="d-flex">
+                    <div class="ml-auto mr-1"></div>
+                    
+                    
+                  </div>
+                </div>
+    
+                <div class="card-body">
+                  <div class="table-responsive">
+
+                  <table class="min-w-full">
+                    <thead>
+                        <tr>
+                            <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Block</th>
+                            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Txn Hash</th>
+                            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Value</th>
+                            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">From</th><th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">To</th>
+                            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Type</th>
+                            
+                            
+                        </tr>
+                    </thead>
+                    <tbody id="trasData" class="bg-white">
+
+                           
+                      <tr id="tx-loading">
+                        <td>
+                      Loading....
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+              </div>
+    
+                </div>
+
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.5.3-rc.0/web3.min.js" integrity="sha512-+18yqikfKtcOi8TjTjfcOdQsu8XaBg0JIJlZkhcsegIFgCGbQzAoTR1AeutQBNraEf8qCrSpua2EMugVWO+utA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      window.addEventListener('load', function () {
+        async function main(){
+         const web3 = new Web3(
+  new Web3.providers.HttpProvider("https://serious-panther-67.loca.lt/")
+);
+          const res = await axios.get("https://n5e4l.sse.codesandbox.io/api/transactions/<%= addr %>");
+          var result = res.data;
+          var ta = document.querySelector('#tx-loading');
+
+          if(result == null){
+            ta.innerHTML= "<td>No transactions were found.</td>"
+          }else{
+            ta.remove();
+          }
+          
+          for(let index = 1;index <= result.length;++index){
+              var re = result[index];
+              var tras = await web3.eth.getTransaction(re);
+              var block = tras.blockNumber;
+              var hash = tras.hash.substring(0,7);
+              var value;
+              var from = tras.from.substring(0,7);
+              var trass = await web3.eth.getTransactionReceipt(re);
+              if(trass.contractAddress != "0x" && trass.contractAddress != null){
+                var to = "[ Contract "+trass.contractAddress.substring(0,7)+" ]"
+              }
+              else{
+              var to = tras.to.substring(0,7);
+
+              }
+              if(tras.value != null){
+                value = await web3.utils.fromWei(tras.value);
+              }
+              else{
+                value = 0;
+              }
+              console.log(trass.logs)
+              if(to == "<%= addr %>"){
+                var type = "In";
+              }else{
+                var type = "Out";
+              }
+              var ls_td = `
+              <tr >
+              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+ <div class="flex items-center">
+ <div>
+ <div class="text-sm leading-5 text-gray-800">${block}</div>
+ </div>
+ </div>
+ </td>
+ <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+ <div class="text-sm leading-5 text-blue-900">${hash}</div>
+ </td>
+ <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">${value} ETH</td>
+ <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">${from}</td>
+ <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">${to}</td>
+ <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+ <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+ <span aria-hidden="" class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+ <span class="relative text-xs">${type}</span>
+ </span>
+ </td>
+ </ tr >
+
+`;
+var tf = document.querySelector('#trasData');
+tf.innerHTML += ls_td;
+            }
+        }
+        main();
+
+      });
+      function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /* Loop through a collection of all HTML elements: */
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+          elmnt = z[i];
+          /*search for elements with a certain atrribute:*/
+          file = elmnt.getAttribute("w3-include-html");
+          if (file) {
+            /* Make an HTTP request using the attribute value as the file name: */
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+              if (this.readyState == 4) {
+                if (this.status == 200) {
+                  elmnt.innerHTML = this.responseText;
+                }
+                if (this.status == 404) {
+                  elmnt.innerHTML = "Page not found.";
+                }
+                /* Remove the attribute, and call this function once more: */
+                elmnt.removeAttribute("w3-include-html");
+                includeHTML();
+              }
+            };
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /* Exit the function: */
+            return;
+          }
+        }
+      }
+      console.log("loaded");
+      includeHTML();
+      function Copy() 
+            {
+              var cora = document.querySelector("#mainaddress").textContent;
+                    //var Url = document.createElement("textarea");
+                    cora.select();
+                    document.execCommand("Copy");
+            }
+
+    </script>
+  </body>
+</html>
